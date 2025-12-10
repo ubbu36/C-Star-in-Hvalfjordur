@@ -21,8 +21,8 @@ project:
     - file: SF6_comparison.ipynb
     - file: SF6_observations.ipynb
     - file: Site_description.ipynb
-    - file: Untitled1.ipynb
-    - file: Untitled.ipynb
+    - file: Tidal_gauge_ssh_comparison.ipynb
+    - file: grid_overview.ipynb
     - file: velocity_analysis-200m-Copy1.ipynb
 site:
   template: book-theme
