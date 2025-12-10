@@ -1,0 +1,568 @@
+<div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(
+    --jp-content-font-color0,
+    var(--pst-color-text-base rgba(0, 0, 0, 1))
+  );
+  --xr-font-color2: var(
+    --jp-content-font-color2,
+    var(--pst-color-text-base, rgba(0, 0, 0, 0.54))
+  );
+  --xr-font-color3: var(
+    --jp-content-font-color3,
+    var(--pst-color-text-base, rgba(0, 0, 0, 0.38))
+  );
+  --xr-border-color: var(
+    --jp-border-color2,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 10))
+  );
+  --xr-disabled-color: var(
+    --jp-layout-color3,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 40))
+  );
+  --xr-background-color: var(
+    --jp-layout-color0,
+    var(--pst-color-on-background, white)
+  );
+  --xr-background-color-row-even: var(
+    --jp-layout-color1,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 5))
+  );
+  --xr-background-color-row-odd: var(
+    --jp-layout-color2,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 15))
+  );
+}
+
+html[theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"],
+body.vscode-dark {
+  --xr-font-color0: var(
+    --jp-content-font-color0,
+    var(--pst-color-text-base, rgba(255, 255, 255, 1))
+  );
+  --xr-font-color2: var(
+    --jp-content-font-color2,
+    var(--pst-color-text-base, rgba(255, 255, 255, 0.54))
+  );
+  --xr-font-color3: var(
+    --jp-content-font-color3,
+    var(--pst-color-text-base, rgba(255, 255, 255, 0.38))
+  );
+  --xr-border-color: var(
+    --jp-border-color2,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 10))
+  );
+  --xr-disabled-color: var(
+    --jp-layout-color3,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 40))
+  );
+  --xr-background-color: var(
+    --jp-layout-color0,
+    var(--pst-color-on-background, #111111)
+  );
+  --xr-background-color-row-even: var(
+    --jp-layout-color1,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 5))
+  );
+  --xr-background-color-row-odd: var(
+    --jp-layout-color2,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 15))
+  );
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 0 20px 0 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: inline-block;
+  opacity: 0;
+  height: 0;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+  border: 2px solid transparent !important;
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:focus + label {
+  border: 2px solid var(--xr-font-color0) !important;
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: "►";
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: "▼";
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: "(";
+}
+
+.xr-dim-list:after {
+  content: ")";
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ",";
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  border-color: var(--xr-background-color-row-odd);
+  margin-bottom: 0;
+  padding-top: 2px;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+  border-color: var(--xr-background-color-row-even);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  border-top: 2px dotted var(--xr-background-color);
+  padding-bottom: 20px !important;
+  padding-top: 10px !important;
+}
+
+.xr-var-attrs-in + label,
+.xr-var-data-in + label,
+.xr-index-data-in + label {
+  padding: 0 1px;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-data > pre,
+.xr-index-data > pre,
+.xr-var-data > table > tbody > tr {
+  background-color: transparent !important;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.xr-var-attrs-in:checked + label > .xr-icon-file-text2,
+.xr-var-data-in:checked + label > .xr-icon-database,
+.xr-index-data-in:checked + label > .xr-icon-database {
+  color: var(--xr-font-color0);
+  filter: drop-shadow(1px 1px 5px var(--xr-font-color2));
+  stroke-width: 0.8px;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 7GB
+Dimensions:  (time: 5002, lat: 481, lon: 721)
+Coordinates:
+  * time     (time) datetime64[ns] 40kB 2024-02-01T12:00:00 ... 2024-08-27T04...
+  * lat      (lat) float32 2kB 63.0 63.0 63.01 63.01 ... 64.99 64.99 65.0 65.0
+  * lon      (lon) float32 3kB 336.0 336.0 336.0 336.0 ... 339.0 339.0 339.0
+Data variables:
+    zeta     (time, lat, lon) float32 7GB nan nan nan nan ... nan nan nan nan
+Attributes: (12/45)
+    global_x:           512
+    global_y:           512
+    title:              Iceland2_MARBL_2024 , 200 m  resolution
+    grid_file:          /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INP...
+    forcing_files:       /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_IN...
+    forcing_info:       
+    ...                 ...
+    river_frc_options:  OFF
+    pipe_frc_options:   OFF
+    particle_options:   OFF
+    git_version:        
+    type:               ROMS history file
+    regrid_method:      bilinear</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-f7d31428-ab19-45a5-a400-e3fcdfc70ad4' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-f7d31428-ab19-45a5-a400-e3fcdfc70ad4' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 5002</li><li><span class='xr-has-index'>lat</span>: 481</li><li><span class='xr-has-index'>lon</span>: 721</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-fe10e5ea-01c4-4183-aeba-1271ffaa8dbc' class='xr-section-summary-in' type='checkbox'  checked><label for='section-fe10e5ea-01c4-4183-aeba-1271ffaa8dbc' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2024-02-01T12:00:00 ... 2024-08-...</div><input id='attrs-e69d9e27-1a7b-4ba6-9264-7d7f402beaad' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e69d9e27-1a7b-4ba6-9264-7d7f402beaad' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3aecd4df-96de-4282-b05e-3a7cc25bbdc2' class='xr-var-data-in' type='checkbox'><label for='data-3aecd4df-96de-4282-b05e-3a7cc25bbdc2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2024-02-01T12:00:00.000000000&#x27;, &#x27;2024-02-01T13:00:00.000000000&#x27;,
+       &#x27;2024-02-01T14:00:00.000000000&#x27;, ..., &#x27;2024-08-27T02:00:00.000000000&#x27;,
+       &#x27;2024-08-27T03:00:00.000000000&#x27;, &#x27;2024-08-27T04:00:00.000000000&#x27;],
+      shape=(5002,), dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>63.0 63.0 63.01 ... 64.99 65.0 65.0</div><input id='attrs-d608a9b3-a25e-4d2e-b8d2-38c2815aa1bb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d608a9b3-a25e-4d2e-b8d2-38c2815aa1bb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d673248b-f345-4784-9c03-a54fcb942e04' class='xr-var-data-in' type='checkbox'><label for='data-d673248b-f345-4784-9c03-a54fcb942e04' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>Degrees North</dd></dl></div><div class='xr-var-data'><pre>array([63.      , 63.004166, 63.008335, ..., 64.99167 , 64.995834, 65.      ],
+      shape=(481,), dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>336.0 336.0 336.0 ... 339.0 339.0</div><input id='attrs-0e7fb6bc-2c5f-4f88-a16a-ef430d3e57d6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0e7fb6bc-2c5f-4f88-a16a-ef430d3e57d6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c7755ea9-5146-4436-9921-f4f5f59fc0cf' class='xr-var-data-in' type='checkbox'><label for='data-c7755ea9-5146-4436-9921-f4f5f59fc0cf' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>Degrees East</dd></dl></div><div class='xr-var-data'><pre>array([336.     , 336.00418, 336.00833, ..., 338.99167, 338.99582, 339.     ],
+      shape=(721,), dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-0aab5d07-08e3-4490-b591-9d1005f85eb1' class='xr-section-summary-in' type='checkbox'  checked><label for='section-0aab5d07-08e3-4490-b591-9d1005f85eb1' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>zeta</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-38ae32d9-7914-4175-b162-54cd5343fcd0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-38ae32d9-7914-4175-b162-54cd5343fcd0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a9be9203-3a01-4d12-9b5d-7f7fe2c8ed92' class='xr-var-data-in' type='checkbox'><label for='data-a9be9203-3a01-4d12-9b5d-7f7fe2c8ed92' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>free-surface elevation</dd><dt><span>units :</span></dt><dd>meter</dd></dl></div><div class='xr-var-data'><pre>array([[[nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan],
+        ...,
+        [nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan]],
+
+       [[nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan],
+        ...,
+        [nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan]],
+
+       [[nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan],
+        ...,
+...
+        [nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan]],
+
+       [[nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan],
+        ...,
+        [nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan]],
+
+       [[nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan],
+        ...,
+        [nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan]]],
+      shape=(5002, 481, 721), dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6e0520ee-5289-4c6f-96db-5f18fa9ccf30' class='xr-section-summary-in' type='checkbox'  ><label for='section-6e0520ee-5289-4c6f-96db-5f18fa9ccf30' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-d10cd1c9-ad72-408f-9a0f-6441fa160455' class='xr-index-data-in' type='checkbox'/><label for='index-d10cd1c9-ad72-408f-9a0f-6441fa160455' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([              63.0,  63.00416564941406,  63.00833511352539,
+        63.01250076293945, 63.016666412353516,  63.02083206176758,
+       63.025001525878906,  63.02916717529297,  63.03333282470703,
+       63.037498474121094,
+       ...
+         64.9625015258789,  64.96666717529297,  64.97083282470703,
+         64.9749984741211,  64.97916412353516,  64.98332977294922,
+        64.98750305175781,  64.99166870117188,  64.99583435058594,
+                     65.0],
+      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;, length=481))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-a5a51afc-8a7e-48d9-99a8-550d1ebc5261' class='xr-index-data-in' type='checkbox'/><label for='index-a5a51afc-8a7e-48d9-99a8-550d1ebc5261' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([             336.0,  336.0041809082031,  336.0083312988281,
+       336.01251220703125, 336.01666259765625,  336.0208435058594,
+        336.0249938964844,  336.0291748046875,  336.0333251953125,
+        336.0375061035156,
+       ...
+        338.9624938964844,  338.9666748046875,  338.9708251953125,
+        338.9750061035156,  338.9791564941406, 338.98333740234375,
+       338.98748779296875,  338.9916687011719,  338.9958190917969,
+                    339.0],
+      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;, length=721))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-700aca97-e06f-415e-9a11-ae56f8a41d94' class='xr-index-data-in' type='checkbox'/><label for='index-700aca97-e06f-415e-9a11-ae56f8a41d94' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2024-02-01 12:00:00&#x27;, &#x27;2024-02-01 13:00:00&#x27;,
+               &#x27;2024-02-01 14:00:00&#x27;, &#x27;2024-02-01 15:00:00&#x27;,
+               &#x27;2024-02-01 16:00:00&#x27;, &#x27;2024-02-01 17:00:00&#x27;,
+               &#x27;2024-02-01 18:00:00&#x27;, &#x27;2024-02-01 19:00:00&#x27;,
+               &#x27;2024-02-01 20:00:00&#x27;, &#x27;2024-02-01 21:00:00&#x27;,
+               ...
+               &#x27;2024-08-26 19:00:00&#x27;, &#x27;2024-08-26 20:00:00&#x27;,
+               &#x27;2024-08-26 21:00:00&#x27;, &#x27;2024-08-26 22:00:00&#x27;,
+               &#x27;2024-08-26 23:00:00&#x27;, &#x27;2024-08-27 00:00:00&#x27;,
+               &#x27;2024-08-27 01:00:00&#x27;, &#x27;2024-08-27 02:00:00&#x27;,
+               &#x27;2024-08-27 03:00:00&#x27;, &#x27;2024-08-27 04:00:00&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=5002, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-bc7f5389-fdc5-4feb-94f4-820f34a6f11f' class='xr-section-summary-in' type='checkbox'  ><label for='section-bc7f5389-fdc5-4feb-94f4-820f34a6f11f' class='xr-section-summary' >Attributes: <span>(45)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>global_x :</span></dt><dd>512</dd><dt><span>global_y :</span></dt><dd>512</dd><dt><span>title :</span></dt><dd>Iceland2_MARBL_2024 , 200 m  resolution</dd><dt><span>grid_file :</span></dt><dd>/anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_grid_MAT1.000.nc</dd><dt><span>forcing_files :</span></dt><dd> /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240131000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240201000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240202000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240203000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240204000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240205000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240206000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240207000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240208000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240209000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240210000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240211000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240212000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240213000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240214000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240215000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240216000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240217000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240218000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240219000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240220000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240221000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240222000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240223000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240224000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240225000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240226000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240227000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240228000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240229000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240301000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240302000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240321000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240322000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240323000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240324000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240325000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240326000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240327000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240328000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240329000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240330000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240331000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240401000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240402000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240403000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240404000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240405000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240406000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240407000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240408000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240409000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240410000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240411000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240412000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240413000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240414000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240415000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240416000120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240417120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240418120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240419120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240420120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240421120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240422120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240423120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240424120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240425120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240426120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240427120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240428120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240429120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240430120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240501120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240502120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240503120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240504120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240505120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240506120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240507120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240508120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240509120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240510120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240511120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240512120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240513120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240514120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240515120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240516120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240517120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240518120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240519120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240520120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240521120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240522120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240523120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240524120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240525120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240526120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240527120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240528120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240529120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240530120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240531120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240601120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240602120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240603120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240604120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240605120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240606120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240607120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240608120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240609120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240610120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240611120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240612120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240613120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240614120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240615120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240616120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240617120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240618120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240619120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240620120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240621120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240622120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240623120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240624120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240625120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240626120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240627120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240628120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240629120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240630120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240701120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240702120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240703120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240704120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240705120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240706120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240707120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240708120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240709120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240710120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240711120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240712120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240713120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240714120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240715120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240716120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240717120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240718120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240719120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240720120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240721120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240722120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240723120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240724120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240725120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240726120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240727120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240728120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240729120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240730120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240731120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240801120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240802120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240803120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240804120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240805120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240806120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240807120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240808120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240809120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240810120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240811120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240812120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240813120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240814120120.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240815120120.000.nc /anvil/scratch/x-uheede/Iceland2_NOMARBL_2024_RHALF/P_INPUT/Iceland2_rivers_modified_HALF.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_tides.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bgc_surface_forcing_clim.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202312.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202401.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202402.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202403.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202404.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202405.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202406.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202407.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202408.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202409.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202410.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202411.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202412.000.nc</dd><dt><span>forcing_info :</span></dt><dd></dd><dt><span>init_file :</span></dt><dd>Iceland2_MARBL_2024_rst.20240201120000.000.nc</dd><dt><span>ntimes :</span></dt><dd>300000</dd><dt><span>ndtfast :</span></dt><dd>80</dd><dt><span>dt :</span></dt><dd>30.0</dd><dt><span>dtfast :</span></dt><dd>0.375</dd><dt><span>theta_s :</span></dt><dd>5.0</dd><dt><span>theta_b :</span></dt><dd>2.0</dd><dt><span>hc :</span></dt><dd>300.0</dd><dt><span>Cs_w :</span></dt><dd>[-1.00000000e+00 -9.72460028e-01 -9.42861399e-01 -9.11442824e-01
+ -8.78471353e-01 -8.44232203e-01 -8.09019067e-01 -7.73125331e-01
+ -7.36836475e-01 -7.00423829e-01 -6.64139707e-01 -6.28213907e-01
+ -5.92851439e-01 -5.58231359e-01 -5.24506541e-01 -4.91804203e-01
+ -4.60227023e-01 -4.29854698e-01 -4.00745794e-01 -3.72939776e-01
+ -3.46459126e-01 -3.21311453e-01 -2.97491558e-01 -2.74983385e-01
+ -2.53761851e-01 -2.33794520e-01 -2.15043116e-01 -1.97464874e-01
+ -1.81013729e-01 -1.65641353e-01 -1.51298043e-01 -1.37933481e-01
+ -1.25497367e-01 -1.13939947e-01 -1.03212441e-01 -9.32673890e-02
+ -8.40589181e-02 -7.55429507e-02 -6.76773549e-02 -6.04220511e-02
+ -5.37390790e-02 -4.75926330e-02 -4.19490733e-02 -3.67769145e-02
+ -3.20467995e-02 -2.77314609e-02 -2.38056732e-02 -2.02461991e-02
+ -1.70317316e-02 -1.41428350e-02 -1.15618848e-02 -9.27300977e-03
+ -7.26203552e-03 -5.51643177e-03 -4.02526351e-03 -2.77914671e-03
+ -1.77020920e-03 -9.92056980e-04 -4.39746265e-04 -1.09761586e-04
+  0.00000000e+00]</dd><dt><span>Cs_r :</span></dt><dd>[-9.86500879e-01 -9.57903911e-01 -9.27363458e-01 -8.95133683e-01
+ -8.61491972e-01 -8.26728944e-01 -7.91139166e-01 -7.55012940e-01
+ -7.18629363e-01 -6.82250780e-01 -6.46118605e-01 -6.10450450e-01
+ -5.75438435e-01 -5.41248500e-01 -5.08020586e-01 -4.75869469e-01
+ -4.44886122e-01 -4.15139429e-01 -3.86678146e-01 -3.59532980e-01
+ -3.33718716e-01 -3.09236305e-01 -2.86074882e-01 -2.64213661e-01
+ -2.43623682e-01 -2.24269409e-01 -2.06110164e-01 -1.89101393e-01
+ -1.73195779e-01 -1.58344203e-01 -1.44496569e-01 -1.31602496e-01
+ -1.19611896e-01 -1.08475455e-01 -9.81450152e-02 -8.85738798e-02
+ -7.97170518e-02 -7.15314104e-02 -6.39758393e-02 -5.70113122e-02
+ -5.06009434e-02 -4.47100105e-02 -3.93059531e-02 -3.43583542e-02
+ -2.98389070e-02 -2.57213715e-02 -2.19815232e-02 -1.85970974e-02
+ -1.55477302e-02 -1.28148990e-02 -1.03818629e-02 -8.23360613e-03
+ -6.35678262e-03 -4.73966557e-03 -3.37210070e-03 -2.24546446e-03
+ -1.35262762e-03 -6.87924411e-04 -2.47127569e-04 -2.74294663e-05]</dd><dt><span>rho0 :</span></dt><dd>1027.4</dd><dt><span>rho0_units :</span></dt><dd>kg/m^3</dd><dt><span>visc2 :</span></dt><dd>0.0</dd><dt><span>visc2_units :</span></dt><dd>m^2/s</dd><dt><span>gamma2 :</span></dt><dd>1.0</dd><dt><span>tnu2 :</span></dt><dd>[0. 0.]</dd><dt><span>tnu2_units :</span></dt><dd>m^2/s</dd><dt><span>ubind :</span></dt><dd>0.1</dd><dt><span>ubind_units :</span></dt><dd>m/s</dd><dt><span>v_sponge :</span></dt><dd>20.0</dd><dt><span>v_sponge_units :</span></dt><dd>m^2/s</dd><dt><span>rdrg :</span></dt><dd>0.0003</dd><dt><span>rdrg_units :</span></dt><dd>m/s</dd><dt><span>rdrg2 :</span></dt><dd>0.0</dd><dt><span>rdrg2_units :</span></dt><dd>nondimensional</dd><dt><span>Zob :</span></dt><dd>0.02</dd><dt><span>Zob_units :</span></dt><dd>m</dd><dt><span>SRCS :</span></dt><dd></dd><dt><span>CPPS :</span></dt><dd>&lt;cppdefs.opt&gt; TWAKE DIAGNOSTICS TIDES BULK_FRC SPONGE_TUNE AVERAGES SOLVE3D UV_COR UV_ADV CURVGRID SPHERICAL MASKING SALINITY NONLIN_EOS SPLIT_EOS EXACT_RESTART IMPLICIT_BOTTOM_DRAG UV_VIS2 TS_DIF2 LMD_MIXING LMD_KPP LMD_BKPP LMD_RIMIX LMD_CONVEC LMD_NONLOCAL SEA_ICE_NOFLUX OBC_WEST OBC_SOUTH OBC_M2FLATHER OBC_M3ORLANSKI OBC_TORLANSKI Z_FRC_BRY M2_FRC_BRY M3_FRC_BRY T_FRC_BRY SPONGE &lt;pre_step3d4S.F&gt; SPLINE_UV SPLINE_TS &lt;step3d_uv1.F&gt; UPSTREAM_UV SPLINE_UV &lt;step3d_uv2.F&gt; DELTA=0.28000000000000003 EPSIL=0.35999999999999999 &lt;step3d_t_ISO.F&gt; UPSTREAM_TS SPLINE_TS &lt;set_depth.F&gt; NOW=3.63 MID=4.47 BAK=2.05 (N-M+B-1)/B=0.102439024 &lt;lmd_kpp.F&gt; INT_AT_RHO_POINTS SMOOTH_HBL &lt;set_global_definitions.h&gt; CORR_COUPLED_MODE EXTRAP_BAR_FLUXES IMPLCT_NO_SLIP_BTTM_BC VAR_RHO_2D</dd><dt><span>bc_options :</span></dt><dd>OBC_WEST, OBC_SOUTH, OBC_M3ORLANSKI, OBC_TORLANSKI, UB_TUNING,</dd><dt><span>bulk_frc_options :</span></dt><dd> Interpolation ON</dd><dt><span>flux_frc_options :</span></dt><dd>OFF</dd><dt><span>tide_options :</span></dt><dd>OFF</dd><dt><span>river_frc_options :</span></dt><dd>OFF</dd><dt><span>pipe_frc_options :</span></dt><dd>OFF</dd><dt><span>particle_options :</span></dt><dd>OFF</dd><dt><span>git_version :</span></dt><dd></dd><dt><span>type :</span></dt><dd>ROMS history file</dd><dt><span>regrid_method :</span></dt><dd>bilinear</dd></dl></div></li></ul></div></div>

@@ -1,0 +1,573 @@
+<div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+html[data-theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 0 20px 0 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: inline-block;
+  opacity: 0;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:focus + label {
+  border: 2px solid var(--xr-font-color0);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray (valid_time: 264, lat: 961, lon: 1141)&gt; Size: 1GB
+array([[[0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        ...,
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.]],
+
+       [[0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        ...,
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.]],
+
+       [[0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        ...,
+...
+        ...,
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.]],
+
+       [[0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        ...,
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.]],
+
+       [[0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        ...,
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.]]], dtype=float32)
+Coordinates:
+  * valid_time  (valid_time) datetime64[ns] 2kB 2024-08-19T01:00:00 ... 2024-...
+    time        (valid_time) float64 2kB 1.724e+09 1.724e+09 ... 1.725e+09
+    step        (valid_time) timedelta64[ns] 2kB 01:00:00 02:00:00 ... 03:00:00
+  * lon         (lon) float64 9kB 330.9 330.9 330.9 330.9 ... 351.1 351.1 351.1
+  * lat         (lat) float64 8kB 61.22 61.23 61.24 61.24 ... 67.91 67.92 67.93
+Attributes:
+    regrid_method:  bilinear
+    long name:      Surface long-wave (thermal) radiation downwards</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>valid_time</span>: 264</li><li><span class='xr-has-index'>lat</span>: 961</li><li><span class='xr-has-index'>lon</span>: 1141</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-b209151c-52c6-41da-9791-588666d5d18a' class='xr-array-in' type='checkbox' checked><label for='section-b209151c-52c6-41da-9791-588666d5d18a' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 ... 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0</span></div><div class='xr-array-data'><pre>array([[[0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        ...,
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.]],
+
+       [[0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        ...,
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.]],
+
+       [[0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        ...,
+...
+        ...,
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.]],
+
+       [[0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        ...,
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.]],
+
+       [[0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        ...,
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.],
+        [0., 0., 0., ..., 0., 0., 0.]]], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-fee8d3ca-229d-479c-8b46-61a97dc1ac71' class='xr-section-summary-in' type='checkbox'  checked><label for='section-fee8d3ca-229d-479c-8b46-61a97dc1ac71' class='xr-section-summary' >Coordinates: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>valid_time</span></div><div class='xr-var-dims'>(valid_time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2024-08-19T01:00:00 ... 2024-08-30</div><input id='attrs-d3a240f6-a024-4981-925d-51de877d58b8' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-d3a240f6-a024-4981-925d-51de877d58b8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4c863ac0-4dce-4253-9e27-8f852ba92634' class='xr-var-data-in' type='checkbox'><label for='data-4c863ac0-4dce-4253-9e27-8f852ba92634' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;2024-08-19T01:00:00.000000000&#x27;, &#x27;2024-08-19T02:00:00.000000000&#x27;,
+       &#x27;2024-08-19T03:00:00.000000000&#x27;, ..., &#x27;2024-08-29T22:00:00.000000000&#x27;,
+       &#x27;2024-08-29T23:00:00.000000000&#x27;, &#x27;2024-08-30T00:00:00.000000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>time</span></div><div class='xr-var-dims'>(valid_time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.724e+09 1.724e+09 ... 1.725e+09</div><input id='attrs-9831e3e4-ced2-41fa-9da8-7b0c5c7b3df1' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-9831e3e4-ced2-41fa-9da8-7b0c5c7b3df1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-020cd003-304a-4703-ac7f-ff7f6feaffe2' class='xr-var-data-in' type='checkbox'><label for='data-020cd003-304a-4703-ac7f-ff7f6feaffe2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1.7240292e+09, 1.7240328e+09, 1.7240364e+09, 1.7240400e+09,
+       1.7240436e+09, 1.7240472e+09, 1.7240508e+09, 1.7240544e+09,
+       1.7240580e+09, 1.7240616e+09, 1.7240652e+09, 1.7240688e+09,
+                 nan,           nan,           nan,           nan,
+                 nan,           nan, 1.7240940e+09, 1.7240976e+09,
+       1.7241012e+09, 1.7241048e+09, 1.7241084e+09, 1.7241120e+09,
+       1.7241156e+09, 1.7241192e+09, 1.7241228e+09, 1.7241264e+09,
+       1.7241300e+09, 1.7241336e+09, 1.7241372e+09, 1.7241408e+09,
+       1.7241444e+09, 1.7241480e+09, 1.7241516e+09, 1.7241552e+09,
+       1.7241588e+09, 1.7241624e+09, 1.7241660e+09, 1.7241696e+09,
+       1.7241732e+09, 1.7241768e+09, 1.7241804e+09, 1.7241840e+09,
+       1.7241876e+09, 1.7241912e+09, 1.7241948e+09, 1.7241984e+09,
+       1.7242020e+09, 1.7242056e+09, 1.7242092e+09, 1.7242128e+09,
+       1.7242164e+09, 1.7242200e+09, 1.7242236e+09, 1.7242272e+09,
+       1.7242308e+09, 1.7242344e+09, 1.7242380e+09, 1.7242416e+09,
+       1.7242452e+09, 1.7242488e+09, 1.7242524e+09, 1.7242560e+09,
+       1.7242596e+09, 1.7242632e+09, 1.7242668e+09, 1.7242704e+09,
+       1.7242740e+09, 1.7242776e+09, 1.7242812e+09, 1.7242848e+09,
+       1.7242884e+09, 1.7242920e+09, 1.7242956e+09, 1.7242992e+09,
+       1.7243028e+09, 1.7243064e+09, 1.7243100e+09, 1.7243136e+09,
+...
+       1.7246916e+09, 1.7246952e+09, 1.7246988e+09, 1.7247024e+09,
+       1.7247060e+09, 1.7247096e+09, 1.7247132e+09, 1.7247168e+09,
+       1.7247204e+09, 1.7247240e+09, 1.7247276e+09, 1.7247312e+09,
+       1.7247348e+09, 1.7247384e+09, 1.7247420e+09, 1.7247456e+09,
+       1.7247492e+09, 1.7247528e+09, 1.7247564e+09, 1.7247600e+09,
+       1.7247636e+09, 1.7247672e+09, 1.7247708e+09, 1.7247744e+09,
+       1.7247780e+09, 1.7247816e+09, 1.7247852e+09, 1.7247888e+09,
+       1.7247924e+09, 1.7247960e+09, 1.7247996e+09, 1.7248032e+09,
+       1.7248068e+09, 1.7248104e+09, 1.7248140e+09, 1.7248176e+09,
+       1.7248212e+09, 1.7248248e+09, 1.7248284e+09, 1.7248320e+09,
+       1.7248356e+09, 1.7248392e+09, 1.7248428e+09, 1.7248464e+09,
+       1.7248500e+09, 1.7248536e+09, 1.7248572e+09, 1.7248608e+09,
+       1.7248644e+09, 1.7248680e+09, 1.7248716e+09, 1.7248752e+09,
+       1.7248788e+09, 1.7248824e+09, 1.7248860e+09, 1.7248896e+09,
+       1.7248932e+09, 1.7248968e+09, 1.7249004e+09, 1.7249040e+09,
+       1.7249076e+09, 1.7249112e+09, 1.7249148e+09, 1.7249184e+09,
+       1.7249220e+09, 1.7249256e+09, 1.7249292e+09, 1.7249328e+09,
+       1.7249364e+09, 1.7249400e+09, 1.7249436e+09, 1.7249472e+09,
+       1.7249508e+09, 1.7249544e+09, 1.7249580e+09, 1.7249616e+09,
+       1.7249652e+09, 1.7249688e+09, 1.7249724e+09, 1.7249760e+09])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>step</span></div><div class='xr-var-dims'>(valid_time)</div><div class='xr-var-dtype'>timedelta64[ns]</div><div class='xr-var-preview xr-preview'>01:00:00 02:00:00 ... 03:00:00</div><input id='attrs-dc7f9a64-5c7b-4f50-889f-43cb3f094e5b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-dc7f9a64-5c7b-4f50-889f-43cb3f094e5b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bfff060e-0778-4608-9698-3dcf6a1c72f4' class='xr-var-data-in' type='checkbox'><label for='data-bfff060e-0778-4608-9698-3dcf6a1c72f4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 3600000000000,  7200000000000, 10800000000000,  3600000000000,
+        7200000000000, 10800000000000,  3600000000000,  7200000000000,
+       10800000000000,  3600000000000,  7200000000000, 10800000000000,
+        3600000000000,  7200000000000, 10800000000000,  3600000000000,
+        7200000000000, 10800000000000,  3600000000000,  7200000000000,
+       10800000000000,  3600000000000,  7200000000000, 10800000000000,
+        3600000000000,  7200000000000, 10800000000000,  3600000000000,
+        7200000000000, 10800000000000,  3600000000000,  7200000000000,
+       10800000000000,  3600000000000,  7200000000000, 10800000000000,
+        3600000000000,  7200000000000, 10800000000000,  3600000000000,
+        7200000000000, 10800000000000,  3600000000000,  7200000000000,
+       10800000000000,  3600000000000,  7200000000000, 10800000000000,
+        3600000000000,  7200000000000, 10800000000000,  3600000000000,
+        7200000000000, 10800000000000,  3600000000000,  7200000000000,
+       10800000000000,  3600000000000,  7200000000000, 10800000000000,
+        3600000000000,  7200000000000, 10800000000000,  3600000000000,
+        7200000000000, 10800000000000,  3600000000000,  7200000000000,
+       10800000000000,  3600000000000,  7200000000000, 10800000000000,
+        3600000000000,  7200000000000, 10800000000000,  3600000000000,
+        7200000000000, 10800000000000,  3600000000000,  7200000000000,
+...
+       10800000000000,  3600000000000,  7200000000000, 10800000000000,
+        3600000000000,  7200000000000, 10800000000000,  3600000000000,
+        7200000000000, 10800000000000,  3600000000000,  7200000000000,
+       10800000000000,  3600000000000,  7200000000000, 10800000000000,
+        3600000000000,  7200000000000, 10800000000000,  3600000000000,
+        7200000000000, 10800000000000,  3600000000000,  7200000000000,
+       10800000000000,  3600000000000,  7200000000000, 10800000000000,
+        3600000000000,  7200000000000, 10800000000000,  3600000000000,
+        7200000000000, 10800000000000,  3600000000000,  7200000000000,
+       10800000000000,  3600000000000,  7200000000000, 10800000000000,
+        3600000000000,  7200000000000, 10800000000000,  3600000000000,
+        7200000000000, 10800000000000,  3600000000000,  7200000000000,
+       10800000000000,  3600000000000,  7200000000000, 10800000000000,
+        3600000000000,  7200000000000, 10800000000000,  3600000000000,
+        7200000000000, 10800000000000,  3600000000000,  7200000000000,
+       10800000000000,  3600000000000,  7200000000000, 10800000000000,
+        3600000000000,  7200000000000, 10800000000000,  3600000000000,
+        7200000000000, 10800000000000,  3600000000000,  7200000000000,
+       10800000000000,  3600000000000,  7200000000000, 10800000000000],
+      dtype=&#x27;timedelta64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>330.9 330.9 330.9 ... 351.1 351.1</div><input id='attrs-f8d2be37-bb46-44c9-8e85-d2d37bb926ce' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f8d2be37-bb46-44c9-8e85-d2d37bb926ce' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9ff39c62-7d1e-49b2-9332-de49d4dd5228' class='xr-var-data-in' type='checkbox'><label for='data-9ff39c62-7d1e-49b2-9332-de49d4dd5228' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd></dl></div><div class='xr-var-data'><pre>array([330.869992, 330.887748, 330.905504, ..., 351.076788, 351.094544,
+       351.1123  ])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>61.22 61.23 61.24 ... 67.92 67.93</div><input id='attrs-a401dbe7-0c7b-49c2-8fa7-798960468fd2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a401dbe7-0c7b-49c2-8fa7-798960468fd2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bf74aee7-0fda-4d6f-adcc-d4678626374d' class='xr-var-data-in' type='checkbox'><label for='data-bf74aee7-0fda-4d6f-adcc-d4678626374d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd></dl></div><div class='xr-var-data'><pre>array([61.22188 , 61.228866, 61.235852, ..., 67.914705, 67.921692, 67.928678])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-4fc9161c-7ae4-4cfe-83fd-95879a3f7e87' class='xr-section-summary-in' type='checkbox'  ><label for='section-4fc9161c-7ae4-4cfe-83fd-95879a3f7e87' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>valid_time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-29d3404f-69c5-4968-9659-766b82e37aae' class='xr-index-data-in' type='checkbox'/><label for='index-29d3404f-69c5-4968-9659-766b82e37aae' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2024-08-19 01:00:00&#x27;, &#x27;2024-08-19 02:00:00&#x27;,
+               &#x27;2024-08-19 03:00:00&#x27;, &#x27;2024-08-19 04:00:00&#x27;,
+               &#x27;2024-08-19 05:00:00&#x27;, &#x27;2024-08-19 06:00:00&#x27;,
+               &#x27;2024-08-19 07:00:00&#x27;, &#x27;2024-08-19 08:00:00&#x27;,
+               &#x27;2024-08-19 09:00:00&#x27;, &#x27;2024-08-19 10:00:00&#x27;,
+               ...
+               &#x27;2024-08-29 15:00:00&#x27;, &#x27;2024-08-29 16:00:00&#x27;,
+               &#x27;2024-08-29 17:00:00&#x27;, &#x27;2024-08-29 18:00:00&#x27;,
+               &#x27;2024-08-29 19:00:00&#x27;, &#x27;2024-08-29 20:00:00&#x27;,
+               &#x27;2024-08-29 21:00:00&#x27;, &#x27;2024-08-29 22:00:00&#x27;,
+               &#x27;2024-08-29 23:00:00&#x27;, &#x27;2024-08-30 00:00:00&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;valid_time&#x27;, length=264, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-7fada54e-e3a5-4c38-be9f-eddc750295da' class='xr-index-data-in' type='checkbox'/><label for='index-7fada54e-e3a5-4c38-be9f-eddc750295da' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 330.8699915264778, 330.88774793776423, 330.90550434905066,
+        330.9232607603371,  330.9410171716235, 330.95877358290994,
+       330.97652999419637,  330.9942864054828,  331.0120428167692,
+       331.02979922805565,
+       ...
+       350.95249269142727,  350.9702491027137,  350.9880055140001,
+       351.00576192528655,   351.023518336573,  351.0412747478594,
+       351.05903115914583, 351.07678757043226,  351.0945439817187,
+        351.1123003930051],
+      dtype=&#x27;float64&#x27;, name=&#x27;lon&#x27;, length=1141))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-2315e4c1-f82e-4b84-add8-030ee6059280' class='xr-index-data-in' type='checkbox'/><label for='index-2315e4c1-f82e-4b84-add8-030ee6059280' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 61.22187965722558, 61.228865905477164,  61.23585215372875,
+       61.242838401980336,  61.24982465023192,  61.25681089848351,
+       61.263797146735094,  61.27078339498668, 61.277769643238265,
+        61.28475589148985,
+       ...
+        67.86580174448376,  67.87278799273534,  67.87977424098693,
+        67.88676048923853,   67.8937467374901,  67.90073298574168,
+        67.90771923399328,  67.91470548224487,  67.92169173049645,
+        67.92867797874803],
+      dtype=&#x27;float64&#x27;, name=&#x27;lat&#x27;, length=961))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-15d25290-30bc-4288-b745-bcc9f10377f9' class='xr-section-summary-in' type='checkbox'  checked><label for='section-15d25290-30bc-4288-b745-bcc9f10377f9' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>regrid_method :</span></dt><dd>bilinear</dd><dt><span>long name :</span></dt><dd>Surface long-wave (thermal) radiation downwards</dd></dl></div></li></ul></div></div>
