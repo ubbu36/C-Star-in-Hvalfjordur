@@ -16,6 +16,7 @@ project:
     - file: SETUP_Iceland2_MARBL_2024.ipynb
     - file: SETUP_Iceland3_MARBL_2024.ipynb
     - file: CTD_comparison_200_WiCO.ipynb
+    - file: BGC_analysis_200m.ipynb
     - file: Model_solution.ipynb
     - file: pipe_movie_withmap.ipynb
     - file: SF6_comparison.ipynb
