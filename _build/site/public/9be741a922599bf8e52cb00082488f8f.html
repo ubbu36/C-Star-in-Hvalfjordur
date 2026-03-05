@@ -1,0 +1,877 @@
+<div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(
+    --jp-content-font-color0,
+    var(--pst-color-text-base rgba(0, 0, 0, 1))
+  );
+  --xr-font-color2: var(
+    --jp-content-font-color2,
+    var(--pst-color-text-base, rgba(0, 0, 0, 0.54))
+  );
+  --xr-font-color3: var(
+    --jp-content-font-color3,
+    var(--pst-color-text-base, rgba(0, 0, 0, 0.38))
+  );
+  --xr-border-color: var(
+    --jp-border-color2,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 10))
+  );
+  --xr-disabled-color: var(
+    --jp-layout-color3,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 40))
+  );
+  --xr-background-color: var(
+    --jp-layout-color0,
+    var(--pst-color-on-background, white)
+  );
+  --xr-background-color-row-even: var(
+    --jp-layout-color1,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 5))
+  );
+  --xr-background-color-row-odd: var(
+    --jp-layout-color2,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 15))
+  );
+}
+
+html[theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"],
+body.vscode-dark {
+  --xr-font-color0: var(
+    --jp-content-font-color0,
+    var(--pst-color-text-base, rgba(255, 255, 255, 1))
+  );
+  --xr-font-color2: var(
+    --jp-content-font-color2,
+    var(--pst-color-text-base, rgba(255, 255, 255, 0.54))
+  );
+  --xr-font-color3: var(
+    --jp-content-font-color3,
+    var(--pst-color-text-base, rgba(255, 255, 255, 0.38))
+  );
+  --xr-border-color: var(
+    --jp-border-color2,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 10))
+  );
+  --xr-disabled-color: var(
+    --jp-layout-color3,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 40))
+  );
+  --xr-background-color: var(
+    --jp-layout-color0,
+    var(--pst-color-on-background, #111111)
+  );
+  --xr-background-color-row-even: var(
+    --jp-layout-color1,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 5))
+  );
+  --xr-background-color-row-odd: var(
+    --jp-layout-color2,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 15))
+  );
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 0 20px 0 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: inline-block;
+  opacity: 0;
+  height: 0;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+  border: 2px solid transparent !important;
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:focus + label {
+  border: 2px solid var(--xr-font-color0) !important;
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: "►";
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: "▼";
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: "(";
+}
+
+.xr-dim-list:after {
+  content: ")";
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ",";
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  border-color: var(--xr-background-color-row-odd);
+  margin-bottom: 0;
+  padding-top: 2px;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+  border-color: var(--xr-background-color-row-even);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  border-top: 2px dotted var(--xr-background-color);
+  padding-bottom: 20px !important;
+  padding-top: 10px !important;
+}
+
+.xr-var-attrs-in + label,
+.xr-var-data-in + label,
+.xr-index-data-in + label {
+  padding: 0 1px;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-data > pre,
+.xr-index-data > pre,
+.xr-var-data > table > tbody > tr {
+  background-color: transparent !important;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.xr-var-attrs-in:checked + label > .xr-icon-file-text2,
+.xr-var-data-in:checked + label > .xr-icon-database,
+.xr-index-data-in:checked + label > .xr-icon-database {
+  color: var(--xr-font-color0);
+  filter: drop-shadow(1px 1px 5px var(--xr-font-color2));
+  stroke-width: 0.8px;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 53kB
+Dimensions:   (location: 7, time: 13, depth: 8)
+Coordinates:
+  * time      (time) datetime64[ns] 104B 2024-04-04 2024-04-18 ... 2024-09-30
+    lat       (location) float32 28B 64.26 64.3 64.34 64.36 64.38 64.38 64.36
+    lon       (location) float32 28B 338.0 338.1 338.2 338.3 338.4 338.5 338.5
+  * depth     (depth) float32 32B -0.0 -5.0 -10.0 -15.0 -20.0 -25.0 -30.0 -35.0
+  * location  (location) int64 56B 1 3 5 7 9 10 12
+Data variables:
+    ALK       (location, time, depth) float64 6kB 2.315e+03 ... 2.296e+03
+    DIC       (location, time, depth) float64 6kB 2.152e+03 ... 2.092e+03
+    PO4       (location, time, depth) float64 6kB 0.8991 0.8996 ... 0.8101
+    NO3       (location, time, depth) float64 6kB 11.04 11.04 ... 8.258 8.258
+    SiO3      (location, time, depth) float64 6kB 7.249 7.245 ... 6.522 6.522
+    NH4       (location, time, depth) float64 6kB 0.5848 0.5852 ... 1.042 1.042
+    O2        (location, time, depth) float64 6kB 337.0 336.4 ... 279.4 279.4
+    nTA       (location, time, depth) float64 6kB 2.276e+03 ... 2.26e+03
+    nDIC      (location, time, depth) float64 6kB 2.116e+03 ... 2.061e+03
+Attributes: (12/44)
+    global_x:           512
+    global_y:           512
+    title:              Iceland2_MARBL_2024 , 200 m  resolution
+    grid_file:          /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INP...
+    forcing_files:       /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_IN...
+    forcing_info:       
+    ...                 ...
+    tide_options:       OFF
+    river_frc_options:  OFF
+    pipe_frc_options:   OFF
+    particle_options:   OFF
+    git_version:        
+    regrid_method:      bilinear</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-c26f2473-3e20-4b20-a9f0-52dd4c0fc31c' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-c26f2473-3e20-4b20-a9f0-52dd4c0fc31c' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>location</span>: 7</li><li><span class='xr-has-index'>time</span>: 13</li><li><span class='xr-has-index'>depth</span>: 8</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-1b6a898f-5d3e-45db-9a2d-b1fe8e4f1bce' class='xr-section-summary-in' type='checkbox'  checked><label for='section-1b6a898f-5d3e-45db-9a2d-b1fe8e4f1bce' class='xr-section-summary' >Coordinates: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2024-04-04 ... 2024-09-30</div><input id='attrs-e2e97d31-7d15-429e-9c8e-c5ee4b33a393' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e2e97d31-7d15-429e-9c8e-c5ee4b33a393' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-56dc1a84-2186-453d-a2c0-22826e2dd182' class='xr-var-data-in' type='checkbox'><label for='data-56dc1a84-2186-453d-a2c0-22826e2dd182' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2024-04-04T00:00:00.000000000&#x27;, &#x27;2024-04-18T00:00:00.000000000&#x27;,
+       &#x27;2024-04-26T00:00:00.000000000&#x27;, &#x27;2024-05-13T00:00:00.000000000&#x27;,
+       &#x27;2024-05-28T00:00:00.000000000&#x27;, &#x27;2024-06-11T00:00:00.000000000&#x27;,
+       &#x27;2024-06-26T00:00:00.000000000&#x27;, &#x27;2024-07-09T00:00:00.000000000&#x27;,
+       &#x27;2024-07-25T00:00:00.000000000&#x27;, &#x27;2024-08-04T00:00:00.000000000&#x27;,
+       &#x27;2024-08-04T00:00:00.000000000&#x27;, &#x27;2024-09-19T00:00:00.000000000&#x27;,
+       &#x27;2024-09-30T00:00:00.000000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(location)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>64.26 64.3 64.34 ... 64.38 64.36</div><input id='attrs-bfc1274f-1de3-4b28-9566-d0146a2a723e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-bfc1274f-1de3-4b28-9566-d0146a2a723e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0a3d08be-6c1d-4f4c-b972-d49520d6626c' class='xr-var-data-in' type='checkbox'><label for='data-0a3d08be-6c1d-4f4c-b972-d49520d6626c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>Degrees North</dd></dl></div><div class='xr-var-data'><pre>array([64.2625 , 64.29583, 64.3375 , 64.3625 , 64.38333, 64.38333,
+       64.3625 ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(location)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>338.0 338.1 338.2 ... 338.5 338.5</div><input id='attrs-99c03b82-dad1-4edf-8a45-1395aed67958' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-99c03b82-dad1-4edf-8a45-1395aed67958' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ddbbfe20-0090-4239-b9ab-10f261193e6e' class='xr-var-data-in' type='checkbox'><label for='data-ddbbfe20-0090-4239-b9ab-10f261193e6e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>Degrees East</dd></dl></div><div class='xr-var-data'><pre>array([338.0125 , 338.1125 , 338.2125 , 338.3    , 338.36667, 338.475  ,
+       338.54584], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>depth</span></div><div class='xr-var-dims'>(depth)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-0.0 -5.0 -10.0 ... -30.0 -35.0</div><input id='attrs-704b248d-aef5-4283-817a-12a33f9c016b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-704b248d-aef5-4283-817a-12a33f9c016b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fe1247b9-a83c-4263-832f-d7a68cfe15b8' class='xr-var-data-in' type='checkbox'><label for='data-fe1247b9-a83c-4263-832f-d7a68cfe15b8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ -0.,  -5., -10., -15., -20., -25., -30., -35.], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>location</span></div><div class='xr-var-dims'>(location)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 3 5 7 9 10 12</div><input id='attrs-a56f5ac9-a68e-4950-8fa0-4f11913f42fd' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a56f5ac9-a68e-4950-8fa0-4f11913f42fd' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-be754bda-14f4-4e97-8a55-e55ad43e4d82' class='xr-var-data-in' type='checkbox'><label for='data-be754bda-14f4-4e97-8a55-e55ad43e4d82' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 1,  3,  5,  7,  9, 10, 12])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-df5e1566-0172-4d01-a16e-8d3ab18b202e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-df5e1566-0172-4d01-a16e-8d3ab18b202e' class='xr-section-summary' >Data variables: <span>(9)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>ALK</span></div><div class='xr-var-dims'>(location, time, depth)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>2.315e+03 2.315e+03 ... 2.296e+03</div><input id='attrs-b698ddc3-4b99-4afe-9f5e-e951d8a200ea' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b698ddc3-4b99-4afe-9f5e-e951d8a200ea' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-99d1f578-e0eb-49b7-96fa-2d3ca9ef917e' class='xr-var-data-in' type='checkbox'><label for='data-99d1f578-e0eb-49b7-96fa-2d3ca9ef917e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>avg_Alkalinity</dd><dt><span>units :</span></dt><dd>meq/m^3</dd></dl></div><div class='xr-var-data'><pre>array([[[2315.26806641, 2315.32683069, 2315.42980754, 2315.50559635,
+         2315.51726862, 2315.52104097, 2315.52197266, 2315.52246094],
+        [2315.40332031, 2315.43208543, 2315.5106586 , 2315.58422805,
+         2315.67357565, 2316.30308444, 2316.33148829, 2316.34008789],
+        [2313.89599609, 2313.85651221, 2313.85799032, 2314.02877602,
+         2314.27075324, 2314.45992864, 2314.56762425, 2314.64086914],
+        [2304.05761719, 2305.33132546, 2305.81073681, 2307.67385228,
+         2310.92269906, 2312.62258919, 2313.01038167, 2313.21801758],
+        [2285.23242188, 2299.45285238, 2305.60273293, 2307.0128384 ,
+         2307.87683971, 2309.45554497, 2309.91728073, 2310.1652832 ],
+        [2259.10742188, 2296.72033616, 2306.06611248, 2309.09765112,
+         2310.93460492, 2311.1406322 , 2311.26602776, 2311.34936523],
+        [2297.93823242, 2300.6549763 , 2304.62176555, 2305.87551096,
+         2307.25586708, 2308.56293628, 2308.54684793, 2308.57446289],
+        [2275.26708984, 2301.7515727 , 2307.86110238, 2310.44655107,
+         2312.91394139, 2313.67675608, 2313.82939821, 2313.86254883],
+        [2302.52075195, 2303.07121545, 2303.41124793, 2304.23189773,
+         2304.83503975, 2305.8902697 , 2306.4903616 , 2306.67041016],
+        [2299.2175293 , 2300.21570969, 2301.61354451, 2303.37578302,
+         2308.53666725, 2311.31824113, 2311.85969656, 2311.93579102],
+...
+        [2111.80297852, 2277.33479834, 2309.82055664, 2309.82055664,
+         2309.82055664, 2309.82055664, 2309.82055664, 2309.82055664],
+        [2108.00317383, 2257.46608731, 2282.88745117, 2282.88745117,
+         2282.88745117, 2282.88745117, 2282.88745117, 2282.88745117],
+        [2017.72814941, 2194.79684391, 2282.51904297, 2282.51904297,
+         2282.51904297, 2282.51904297, 2282.51904297, 2282.51904297],
+        [2105.51977539, 2199.92389711, 2256.13305664, 2256.13305664,
+         2256.13305664, 2256.13305664, 2256.13305664, 2256.13305664],
+        [2020.71765137, 2163.61547418, 2276.3347168 , 2276.3347168 ,
+         2276.3347168 , 2276.3347168 , 2276.3347168 , 2276.3347168 ],
+        [2090.53222656, 2221.75979505, 2255.03149414, 2255.03149414,
+         2255.03149414, 2255.03149414, 2255.03149414, 2255.03149414],
+        [2197.94165039, 2219.39198399, 2277.2578125 , 2277.2578125 ,
+         2277.2578125 , 2277.2578125 , 2277.2578125 , 2277.2578125 ],
+        [2197.94165039, 2219.39198399, 2277.2578125 , 2277.2578125 ,
+         2277.2578125 , 2277.2578125 , 2277.2578125 , 2277.2578125 ],
+        [2075.89501953, 2149.05566184, 2225.69897461, 2225.69897461,
+         2225.69897461, 2225.69897461, 2225.69897461, 2225.69897461],
+        [2147.81616211, 2162.43456472, 2295.61938477, 2295.61938477,
+         2295.61938477, 2295.61938477, 2295.61938477, 2295.61938477]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>DIC</span></div><div class='xr-var-dims'>(location, time, depth)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>2.152e+03 2.152e+03 ... 2.092e+03</div><input id='attrs-caf2a557-63f5-4e3e-b514-23d81cde3d90' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-caf2a557-63f5-4e3e-b514-23d81cde3d90' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-483c47fd-c0ab-40fb-8073-a7f5b0a44729' class='xr-var-data-in' type='checkbox'><label for='data-483c47fd-c0ab-40fb-8073-a7f5b0a44729' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>avg_Dissolved Inorganic Carbon</dd><dt><span>units :</span></dt><dd>mmol/m^3</dd></dl></div><div class='xr-var-data'><pre>array([[[2152.11352539, 2151.65875852, 2150.94085106, 2150.4189335 ,
+         2150.34995796, 2150.3343829 , 2150.33327902, 2150.33642578],
+        [2149.71655273, 2149.48677964, 2149.17098866, 2149.05684652,
+         2149.01803116, 2148.56574384, 2148.58810662, 2148.61572266],
+        [2142.06005859, 2141.4719274 , 2140.3729386 , 2139.99556108,
+         2140.30676943, 2140.70630964, 2140.95048764, 2141.10766602],
+        [2090.59350586, 2095.89531962, 2099.4614096 , 2105.31713181,
+         2114.57190168, 2119.29372473, 2120.30908909, 2120.82250977],
+        [2073.03222656, 2084.80172266, 2090.72139811, 2091.97453855,
+         2094.85313437, 2100.61121539, 2102.16020609, 2102.91333008],
+        [2065.69775391, 2097.24786097, 2104.25385812, 2107.78648804,
+         2111.75881342, 2112.02686267, 2112.15369546, 2112.26660156],
+        [2089.76489258, 2090.23783931, 2091.12136214, 2093.52250536,
+         2098.51055513, 2104.35822835, 2105.49339955, 2105.67749023],
+        [2053.71923828, 2082.17286953, 2096.05961395, 2105.05419273,
+         2111.38231717, 2113.46494986, 2113.95379788, 2114.05078125],
+        [2091.50512695, 2092.41530659, 2092.76248441, 2093.66630466,
+         2094.38584728, 2096.0705407 , 2096.95311365, 2097.1953125 ],
+        [2076.72338867, 2077.52340384, 2078.78635492, 2081.38101062,
+         2095.29302647, 2105.1004899 , 2107.13627054, 2107.38598633],
+...
+        [1941.65844727, 2090.572088  , 2121.33154297, 2121.33154297,
+         2121.33154297, 2121.33154297, 2121.33154297, 2121.33154297],
+        [1936.23022461, 2069.02053422, 2091.453125  , 2091.453125  ,
+         2091.453125  , 2091.453125  , 2091.453125  , 2091.453125  ],
+        [1857.22973633, 2010.57994315, 2086.40087891, 2086.40087891,
+         2086.40087891, 2086.40087891, 2086.40087891, 2086.40087891],
+        [1924.85595703, 2008.18794202, 2058.83911133, 2058.83911133,
+         2058.83911133, 2058.83911133, 2058.83911133, 2058.83911133],
+        [1831.38769531, 1955.89398557, 2059.53613281, 2059.53613281,
+         2059.53613281, 2059.53613281, 2059.53613281, 2059.53613281],
+        [1903.33679199, 2018.30367948, 2047.44592285, 2047.44592285,
+         2047.44592285, 2047.44592285, 2047.44592285, 2047.44592285],
+        [1994.4432373 , 2013.33399282, 2065.02539062, 2065.02539062,
+         2065.02539062, 2065.02539062, 2065.02539062, 2065.02539062],
+        [1994.4432373 , 2013.33399282, 2065.02539062, 2065.02539062,
+         2065.02539062, 2065.02539062, 2065.02539062, 2065.02539062],
+        [1894.09558105, 1958.22267593, 2026.37548828, 2026.37548828,
+         2026.37548828, 2026.37548828, 2026.37548828, 2026.37548828],
+        [1962.63439941, 1975.48196424, 2092.19726562, 2092.19726562,
+         2092.19726562, 2092.19726562, 2092.19726562, 2092.19726562]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>PO4</span></div><div class='xr-var-dims'>(location, time, depth)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.8991 0.8996 ... 0.8101 0.8101</div><input id='attrs-e79e0dba-6ac2-49a1-9337-a9c407b2c974' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e79e0dba-6ac2-49a1-9337-a9c407b2c974' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-790e33c6-7fe2-462e-9257-4ef50f58baf6' class='xr-var-data-in' type='checkbox'><label for='data-790e33c6-7fe2-462e-9257-4ef50f58baf6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>avg_Dissolved Inorganic Phosphate</dd><dt><span>units :</span></dt><dd>mmol/m^3</dd></dl></div><div class='xr-var-data'><pre>array([[[0.89909428, 0.89959543, 0.90055638, 0.90129218, 0.90144728,
+         0.90151883, 0.90154193, 0.90156752],
+        [0.87410438, 0.87453351, 0.87643329, 0.87933734, 0.8827081 ,
+         0.90032756, 0.90128856, 0.90166456],
+        [0.8004669 , 0.79840575, 0.79657352, 0.80070108, 0.80807175,
+         0.81428346, 0.8180752 , 0.82131231],
+        [0.60043228, 0.63119393, 0.6720863 , 0.70885922, 0.77521238,
+         0.81504925, 0.82308023, 0.8297165 ],
+        [0.65731245, 0.65464484, 0.65839155, 0.67000132, 0.69402674,
+         0.73646089, 0.74560384, 0.75195473],
+        [0.80744362, 0.81897863, 0.81876007, 0.82918682, 0.84888611,
+         0.84997377, 0.85048475, 0.85118258],
+        [0.74993855, 0.73629217, 0.71878879, 0.7352728 , 0.77489212,
+         0.820996  , 0.82943555, 0.83160263],
+        [0.66245288, 0.7135414 , 0.79313352, 0.85980373, 0.89512782,
+         0.90362292, 0.906724  , 0.90785807],
+        [0.77706087, 0.78200669, 0.78315817, 0.78618256, 0.78849269,
+         0.79360345, 0.7960075 , 0.79683137],
+        [0.68440348, 0.6835965 , 0.68266708, 0.68552081, 0.74267718,
+         0.79811853, 0.80999471, 0.81275117],
+...
+        [0.68876284, 0.74757611, 0.80491662, 0.80491662, 0.80491662,
+         0.80491662, 0.80491662, 0.80491662],
+        [0.81151146, 0.84642631, 0.85420805, 0.85420805, 0.85420805,
+         0.85420805, 0.85420805, 0.85420805],
+        [0.76806378, 0.79926117, 0.81536853, 0.81536853, 0.81536853,
+         0.81536853, 0.81536853, 0.81536853],
+        [0.73645067, 0.75646989, 0.78330773, 0.78330773, 0.78330773,
+         0.78330773, 0.78330773, 0.78330773],
+        [0.6683917 , 0.6918449 , 0.79431695, 0.79431695, 0.79431695,
+         0.79431695, 0.79431695, 0.79431695],
+        [0.78770316, 0.80960769, 0.81422734, 0.81422734, 0.81422734,
+         0.81422734, 0.81422734, 0.81422734],
+        [0.74103826, 0.7469173 , 0.76871282, 0.76871282, 0.76871282,
+         0.76871282, 0.76871282, 0.76871282],
+        [0.74103826, 0.7469173 , 0.76871282, 0.76871282, 0.76871282,
+         0.76871282, 0.76871282, 0.76871282],
+        [0.72948724, 0.74329905, 0.77182144, 0.77182144, 0.77182144,
+         0.77182144, 0.77182144, 0.77182144],
+        [0.78148031, 0.78454273, 0.8100785 , 0.8100785 , 0.8100785 ,
+         0.8100785 , 0.8100785 , 0.8100785 ]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>NO3</span></div><div class='xr-var-dims'>(location, time, depth)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>11.04 11.04 11.05 ... 8.258 8.258</div><input id='attrs-19980700-b479-4b53-b5de-be5fcb82b164' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-19980700-b479-4b53-b5de-be5fcb82b164' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1fe9d06d-7292-4a25-ae2f-1164cb53a785' class='xr-var-data-in' type='checkbox'><label for='data-1fe9d06d-7292-4a25-ae2f-1164cb53a785' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>avg_Dissolved Inorganic Nitrate</dd><dt><span>units :</span></dt><dd>mmol/m^3</dd></dl></div><div class='xr-var-data'><pre>array([[[11.0437355 , 11.04357141, 11.04578887, 11.0472069 ,
+         11.0471642 , 11.04699329, 11.04689111, 11.04669476],
+        [10.84429836, 10.84950516, 10.87886633, 10.92007351,
+         10.96219802, 11.13985891, 11.14278194, 11.14091396],
+        [ 9.63724613,  9.60315423,  9.55631254,  9.58284761,
+          9.65762607,  9.72246105,  9.75813594,  9.77289772],
+        [ 6.28016329,  6.99303633,  6.97379248,  7.44850256,
+          8.07491225,  8.3757496 ,  8.45138206,  8.47902107],
+        [ 6.10512257,  6.76647928,  7.14724063,  7.12491351,
+          7.26979085,  7.61323014,  7.73031841,  7.78502226],
+        [ 6.78277826,  7.62559131,  7.93894262,  8.20969675,
+          8.54540301,  8.56569139,  8.572549  ,  8.5735817 ],
+        [ 7.5468111 ,  7.42362504,  7.25703076,  7.32642023,
+          7.51485335,  7.82295965,  7.99626367,  8.01380253],
+        [ 6.08534241,  6.6122016 ,  7.30248391,  7.82032133,
+          8.15883743,  8.28297264,  8.30771188,  8.30706024],
+        [ 7.53306055,  7.57954167,  7.59091868,  7.6047122 ,
+          7.61538425,  7.65854411,  7.68027806,  7.68119097],
+        [ 6.84788895,  6.84637258,  6.8553441 ,  6.9471897 ,
+          7.63424715,  8.09808441,  8.19430793,  8.19978428],
+...
+        [ 6.03170681,  6.25719151,  6.32274342,  6.32274342,
+          6.32274342,  6.32274342,  6.32274342,  6.32274342],
+        [ 6.07934666,  6.0573927 ,  6.07677126,  6.07677126,
+          6.07677126,  6.07677126,  6.07677126,  6.07677126],
+        [ 6.13093138,  6.12197407,  6.0885973 ,  6.0885973 ,
+          6.0885973 ,  6.0885973 ,  6.0885973 ,  6.0885973 ],
+        [ 7.02935791,  7.11783868,  7.2049737 ,  7.2049737 ,
+          7.2049737 ,  7.2049737 ,  7.2049737 ,  7.2049737 ],
+        [ 5.97563362,  5.91219103,  6.25917387,  6.25917387,
+          6.25917387,  6.25917387,  6.25917387,  6.25917387],
+        [ 6.43943501,  6.52547847,  6.55428171,  6.55428171,
+          6.55428171,  6.55428171,  6.55428171,  6.55428171],
+        [ 6.8566823 ,  6.89390234,  6.98318815,  6.98318815,
+          6.98318815,  6.98318815,  6.98318815,  6.98318815],
+        [ 6.8566823 ,  6.89390234,  6.98318815,  6.98318815,
+          6.98318815,  6.98318815,  6.98318815,  6.98318815],
+        [ 7.50121689,  7.55534348,  7.73900938,  7.73900938,
+          7.73900938,  7.73900938,  7.73900938,  7.73900938],
+        [ 7.99689102,  8.00599128,  8.2581768 ,  8.2581768 ,
+          8.2581768 ,  8.2581768 ,  8.2581768 ,  8.2581768 ]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>SiO3</span></div><div class='xr-var-dims'>(location, time, depth)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>7.249 7.245 7.243 ... 6.522 6.522</div><input id='attrs-2dc2ac23-126b-4543-8e53-142532edc9e8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2dc2ac23-126b-4543-8e53-142532edc9e8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-774b2442-00ae-44b5-8da1-a78064ca76df' class='xr-var-data-in' type='checkbox'><label for='data-774b2442-00ae-44b5-8da1-a78064ca76df' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>avg_Dissolved Inorganic Silicate</dd><dt><span>units :</span></dt><dd>mmol/m^3</dd></dl></div><div class='xr-var-data'><pre>array([[[7.24861002, 7.24539986, 7.24312186, 7.24297959, 7.24486788,
+         7.24655414, 7.24729992, 7.24837828],
+        [7.02628136, 7.01952175, 7.00963208, 7.01132961, 7.02838064,
+         7.15568146, 7.1684946 , 7.17594194],
+        [7.23050165, 7.22642607, 7.21527889, 7.20455175, 7.19870335,
+         7.19687429, 7.19700753, 7.1987462 ],
+        [6.51868057, 6.30814364, 6.48512163, 6.42444462, 6.3428473 ,
+         6.30293902, 6.29129029, 6.2871027 ],
+        [6.70848894, 6.66878922, 6.66088783, 6.6348969 , 6.6347385 ,
+         6.65183072, 6.65907789, 6.66369009],
+        [6.68952274, 6.70898902, 6.7235073 , 6.73814281, 6.7606718 ,
+         6.7626856 , 6.76438009, 6.76890707],
+        [6.65751314, 6.66439092, 6.68029003, 6.69658663, 6.71693027,
+         6.73885687, 6.7404945 , 6.74362469],
+        [6.66851902, 6.65465657, 6.64205641, 6.64290117, 6.63718949,
+         6.62382185, 6.62319973, 6.62552547],
+        [6.34288406, 6.36212616, 6.36472544, 6.37884196, 6.3952754 ,
+         6.45830498, 6.48798572, 6.50082684],
+        [6.49504614, 6.49564947, 6.49559531, 6.49309479, 6.51623834,
+         6.55104059, 6.55714213, 6.55967093],
+...
+        [6.99140692, 7.34627156, 7.4124279 , 7.4124279 , 7.4124279 ,
+         7.4124279 , 7.4124279 , 7.4124279 ],
+        [6.6468935 , 6.96927749, 6.97457504, 6.97457504, 6.97457504,
+         6.97457504, 6.97457504, 6.97457504],
+        [6.32827473, 6.65210275, 6.84622526, 6.84622526, 6.84622526,
+         6.84622526, 6.84622526, 6.84622526],
+        [6.37781334, 6.54982696, 6.70779276, 6.70779276, 6.70779276,
+         6.70779276, 6.70779276, 6.70779276],
+        [6.29614401, 6.57740851, 6.77388859, 6.77388859, 6.77388859,
+         6.77388859, 6.77388859, 6.77388859],
+        [6.32118273, 6.55035703, 6.61904144, 6.61904144, 6.61904144,
+         6.61904144, 6.61904144, 6.61904144],
+        [6.5061202 , 6.54995303, 6.68469954, 6.68469954, 6.68469954,
+         6.68469954, 6.68469954, 6.68469954],
+        [6.5061202 , 6.54995303, 6.68469954, 6.68469954, 6.68469954,
+         6.68469954, 6.68469954, 6.68469954],
+        [6.14748287, 6.2775225 , 6.40990829, 6.40990829, 6.40990829,
+         6.40990829, 6.40990829, 6.40990829],
+        [6.26766968, 6.29392873, 6.521698  , 6.521698  , 6.521698  ,
+         6.521698  , 6.521698  , 6.521698  ]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>NH4</span></div><div class='xr-var-dims'>(location, time, depth)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.5848 0.5852 0.59 ... 1.042 1.042</div><input id='attrs-e3b8dd2d-4382-41b9-b3de-798f90ad9eb2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e3b8dd2d-4382-41b9-b3de-798f90ad9eb2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a9d0677f-f4ac-4364-9b76-0b03444187bb' class='xr-var-data-in' type='checkbox'><label for='data-a9d0677f-f4ac-4364-9b76-0b03444187bb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>avg_Dissolved Ammonia</dd><dt><span>units :</span></dt><dd>mmol/m^3</dd></dl></div><div class='xr-var-data'><pre>array([[[0.58475465, 0.5851727 , 0.589991  , 0.59420175, 0.59553803,
+         0.59634552, 0.59665272, 0.59705293],
+        [0.4396728 , 0.44177414, 0.45464928, 0.47428042, 0.50307352,
+         0.69327212, 0.70477012, 0.70978814],
+        [0.27826062, 0.2773329 , 0.28999095, 0.32534279, 0.36633218,
+         0.39861705, 0.41983385, 0.44475576],
+        [0.12329306, 0.19934673, 0.67072956, 0.88134391, 1.36505034,
+         1.68210785, 1.73529832, 1.79398918],
+        [0.70936263, 0.48752184, 0.40523785, 0.57672212, 0.79488141,
+         1.13240058, 1.18026105, 1.22276521],
+        [2.18681026, 1.95416189, 1.79306816, 1.76817804, 1.82732399,
+         1.82756883, 1.82799421, 1.83391261],
+        [1.00393224, 0.91185123, 0.79091768, 0.94212141, 1.32638534,
+         1.72741917, 1.73220216, 1.74491382],
+        [0.64192963, 1.15591187, 1.74697653, 2.21670767, 2.44576351,
+         2.49874053, 2.52269341, 2.53504992],
+        [1.5489099 , 1.5690182 , 1.57015949, 1.58751042, 1.60425068,
+         1.65395251, 1.67647408, 1.68531239],
+        [0.54609823, 0.54227852, 0.53813815, 0.56164611, 1.05327291,
+         1.57761829, 1.69299996, 1.72128785],
+...
+        [1.09619474, 1.40744716, 1.98905206, 1.98905206, 1.98905206,
+         1.98905206, 1.98905206, 1.98905206],
+        [2.62295532, 2.80201503, 2.91307402, 2.91307402, 2.91307402,
+         2.91307402, 2.91307402, 2.91307402],
+        [2.2220335 , 2.38055939, 2.48316073, 2.48316073, 2.48316073,
+         2.48316073, 2.48316073, 2.48316073],
+        [1.23615432, 1.29820152, 1.52276647, 1.52276647, 1.52276647,
+         1.52276647, 1.52276647, 1.52276647],
+        [0.70439267, 0.80378975, 1.64800608, 1.64800608, 1.64800608,
+         1.64800608, 1.64800608, 1.64800608],
+        [2.11178803, 2.16343177, 2.16744256, 2.16744256, 2.16744256,
+         2.16744256, 2.16744256, 2.16744256],
+        [1.1311028 , 1.16218148, 1.32709527, 1.32709527, 1.32709527,
+         1.32709527, 1.32709527, 1.32709527],
+        [1.1311028 , 1.16218148, 1.32709527, 1.32709527, 1.32709527,
+         1.32709527, 1.32709527, 1.32709527],
+        [0.80155915, 0.82555239, 0.96315265, 0.96315265, 0.96315265,
+         0.96315265, 0.96315265, 0.96315265],
+        [1.04174423, 1.04963498, 1.0417819 , 1.0417819 , 1.0417819 ,
+         1.0417819 , 1.0417819 , 1.0417819 ]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>O2</span></div><div class='xr-var-dims'>(location, time, depth)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>337.0 336.4 335.2 ... 279.4 279.4</div><input id='attrs-50872bfb-8a81-49f6-802c-0b128933a155' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-50872bfb-8a81-49f6-802c-0b128933a155' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-38509a26-7597-4cc2-83f3-b87197199f21' class='xr-var-data-in' type='checkbox'><label for='data-38509a26-7597-4cc2-83f3-b87197199f21' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>avg_Dissolved Oxygen</dd><dt><span>units :</span></dt><dd>mmol/m^3</dd></dl></div><div class='xr-var-data'><pre>array([[[337.01367188, 336.35539847, 335.1766138 , 334.29808135,
+         334.16356837, 334.12096315, 334.11251838, 334.11004639],
+        [338.59802246, 338.43430863, 337.65420332, 336.75759034,
+         335.7459241 , 329.75600919, 329.53856643, 329.50039673],
+        [350.86575317, 351.15901368, 351.0778776 , 350.19831523,
+         348.952254  , 347.93913393, 347.35794451, 347.03488159],
+        [350.43865967, 350.73701214, 353.84705404, 349.41674213,
+         342.52575049, 339.09529501, 338.34929139, 337.99786377],
+        [333.09820557, 332.24650727, 332.48452719, 333.01160471,
+         331.26388925, 327.23469817, 326.51344058, 326.21105957],
+        [301.00619507, 299.77802545, 300.93584602, 301.52923229,
+         300.97227578, 301.00348036, 301.04209301, 301.0362854 ],
+        [297.49438477, 298.73625774, 299.6774224 , 298.22269212,
+         295.62999621, 295.32554516, 298.30324428, 298.68530273],
+        [308.02386475, 304.0461618 , 301.40202731, 299.94906469,
+         298.41621187, 298.08892998, 298.00244925, 297.97769165],
+        [281.12210083, 282.1633702 , 282.2248985 , 282.29969602,
+         282.46775782, 283.42017018, 283.8387956 , 283.88616943],
+        [288.75808716, 289.26632892, 289.63754705, 289.95501302,
+         287.49451643, 284.42137543, 283.76133014, 283.67358398],
+...
+        [374.46734619, 382.25789389, 383.03921509, 383.03921509,
+         383.03921509, 383.03921509, 383.03921509, 383.03921509],
+        [340.48693848, 340.81637929, 340.85836792, 340.85836792,
+         340.85836792, 340.85836792, 340.85836792, 340.85836792],
+        [310.19421387, 310.50785315, 310.293396  , 310.293396  ,
+         310.293396  , 310.293396  , 310.293396  , 310.293396  ],
+        [303.0383606 , 302.24818082, 302.45367432, 302.45367432,
+         302.45367432, 302.45367432, 302.45367432, 302.45367432],
+        [319.18740845, 319.85430683, 318.37231445, 318.37231445,
+         318.37231445, 318.37231445, 318.37231445, 318.37231445],
+        [285.61468506, 281.94200361, 281.32250977, 281.32250977,
+         281.32250977, 281.32250977, 281.32250977, 281.32250977],
+        [282.3104248 , 283.99079632, 285.11254883, 285.11254883,
+         285.11254883, 285.11254883, 285.11254883, 285.11254883],
+        [282.3104248 , 283.99079632, 285.11254883, 285.11254883,
+         285.11254883, 285.11254883, 285.11254883, 285.11254883],
+        [290.01556396, 287.25123861, 283.16003418, 283.16003418,
+         283.16003418, 283.16003418, 283.16003418, 283.16003418],
+        [286.78366089, 286.07808802, 279.35354614, 279.35354614,
+         279.35354614, 279.35354614, 279.35354614, 279.35354614]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>nTA</span></div><div class='xr-var-dims'>(location, time, depth)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>2.276e+03 2.275e+03 ... 2.26e+03</div><input id='attrs-ca30ed2c-e276-43a2-b4ca-83f42a26c4f2' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ca30ed2c-e276-43a2-b4ca-83f42a26c4f2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0c138cc9-a006-4ac9-a314-0c26c7aee61f' class='xr-var-data-in' type='checkbox'><label for='data-0c138cc9-a006-4ac9-a314-0c26c7aee61f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[2275.51067944, 2274.63837344, 2273.69495563, 2272.98574237,
+         2272.88393349, 2272.85597477, 2272.85194002, 2272.85307683],
+        [2275.77058519, 2273.67662965, 2272.50861752, 2271.72230623,
+         2271.01205597, 2266.73834605, 2266.6132016 , 2266.60901234],
+        [2278.89218998, 2278.43126098, 2277.17658194, 2275.94701079,
+         2275.13716852, 2274.65631815, 2274.40121174, 2274.27910616],
+        [2260.19829059, 2255.95251032, 2256.29534533, 2256.62597411,
+         2258.1673656 , 2258.9738546 , 2259.13192525, 2259.24036603],
+        [2262.49575016, 2255.21376335, 2252.25417662, 2251.3974375 ,
+         2251.8642194 , 2253.109925  , 2253.40703076, 2253.55831644],
+        [2264.01206736, 2257.58657537, 2255.09561835, 2254.25991929,
+         2253.77239949, 2253.71256984, 2253.68128259, 2253.67189661],
+        [2260.39858303, 2259.24013322, 2258.1061317 , 2257.82727604,
+         2257.45852854, 2256.35263071, 2255.59159374, 2255.50386566],
+        [2254.59273148, 2254.23323972, 2253.71042047, 2253.50754602,
+         2253.38778833, 2253.19784793, 2253.17222128, 2253.18245604],
+        [2262.43895023, 2259.89366371, 2259.37741784, 2258.77818097,
+         2258.25338328, 2257.15340736, 2256.74139168, 2256.67452967],
+        [2259.90449467, 2259.84125839, 2259.72507851, 2259.30217357,
+         2256.32484391, 2254.05961223, 2253.60045108, 2253.57097022],
+...
+        [2290.73602769, 2291.76445113, 2291.88824193, 2291.88824193,
+         2291.88824193, 2291.88824193, 2291.88824193, 2291.88824193],
+        [2276.26405964, 2280.26067437, 2279.22140561, 2279.22140561,
+         2279.22140561, 2279.22140561, 2279.22140561, 2279.22140561],
+        [2266.96198903, 2271.35675333, 2272.99538857, 2272.99538857,
+         2272.99538857, 2272.99538857, 2272.99538857, 2272.99538857],
+        [2261.4549754 , 2262.78414429, 2262.58705968, 2262.58705968,
+         2262.58705968, 2262.58705968, 2262.58705968, 2262.58705968],
+        [2249.29769935, 2254.5883458 , 2258.67374235, 2258.67374235,
+         2258.67374235, 2258.67374235, 2258.67374235, 2258.67374235],
+        [2261.84239254, 2262.02490557, 2262.05836877, 2262.05836877,
+         2262.05836877, 2262.05836877, 2262.05836877, 2262.05836877],
+        [2260.51734252, 2260.67740107, 2261.73797632, 2261.73797632,
+         2261.73797632, 2261.73797632, 2261.73797632, 2261.73797632],
+        [2260.51734252, 2260.67740107, 2261.73797632, 2261.73797632,
+         2261.73797632, 2261.73797632, 2261.73797632, 2261.73797632],
+        [2262.16725108, 2264.45163185, 2263.26580379, 2263.26580379,
+         2263.26580379, 2263.26580379, 2263.26580379, 2263.26580379],
+        [2257.86461787, 2258.56951793, 2260.21474398, 2260.21474398,
+         2260.21474398, 2260.21474398, 2260.21474398, 2260.21474398]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>nDIC</span></div><div class='xr-var-dims'>(location, time, depth)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>2.116e+03 2.115e+03 ... 2.061e+03</div><input id='attrs-19193515-fc60-4afe-8cb1-b362e1cf993e' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-19193515-fc60-4afe-8cb1-b362e1cf993e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-54fc9bec-a3a1-44eb-a081-259fd579eb5d' class='xr-var-data-in' type='checkbox'><label for='data-54fc9bec-a3a1-44eb-a081-259fd579eb5d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[2116.3324173 , 2115.04981856, 2113.40700138, 2112.19138949,
+         2112.02204811, 2111.97834278, 2111.97281464, 2111.97648783],
+        [2114.09652879, 2111.96418354, 2110.53631592, 2109.65349647,
+         2108.89896738, 2104.06686065, 2103.95144519, 2103.96709505],
+        [2110.70843274, 2109.75242825, 2107.54847213, 2105.92787865,
+         2105.29631947, 2105.09193575, 2105.00858616, 2104.98914761],
+        [2052.23186784, 2052.60425249, 2055.97394117, 2060.37782616,
+         2067.96384149, 2071.8116279 , 2072.60591506, 2073.02278588],
+        [2053.15794392, 2046.14645805, 2044.09211795, 2043.36335938,
+         2045.83628345, 2051.18180328, 2052.55461998, 2053.20795926],
+        [2070.02323863, 2062.76654379, 2059.37384525, 2059.47807169,
+         2061.33662699, 2061.36773335, 2061.35589283, 2061.38588871],
+        [2056.84686635, 2053.96072386, 2050.43559172, 2051.46536815,
+         2054.82983577, 2058.44028783, 2058.89037677, 2058.96879238],
+        [2035.75716575, 2040.76093821, 2048.63966354, 2055.00431312,
+         2058.93688208, 2060.13826651, 2060.45939344, 2060.53415171],
+        [2056.40293429, 2054.59285817, 2054.18888763, 2053.84474805,
+         2053.57172961, 2053.34983327, 2053.33650738, 2053.36015683],
+        [2042.52523881, 2042.40329546, 2042.34829454, 2043.0190732 ,
+         2049.60579631, 2054.78989159, 2055.90187639, 2056.05351189],
+...
+        [2100.03394199, 2103.36120781, 2105.42065848, 2105.42065848,
+         2105.42065848, 2105.42065848, 2105.42065848, 2105.42065848],
+        [2084.9702255 , 2089.17826418, 2088.21125195, 2088.21125195,
+         2088.21125195, 2088.21125195, 2088.21125195, 2088.21125195],
+        [2077.66308707, 2078.16306485, 2078.00155114, 2078.00155114,
+         2078.00155114, 2078.00155114, 2078.00155114, 2078.00155114],
+        [2061.91874719, 2063.4519183 , 2064.51720791, 2064.51720791,
+         2064.51720791, 2064.51720791, 2064.51720791, 2064.51720791],
+        [2029.82616182, 2034.89251195, 2044.14899109, 2044.14899109,
+         2044.14899109, 2044.14899109, 2044.14899109, 2044.14899109],
+        [2053.12672441, 2053.51526516, 2053.5910449 , 2053.5910449 ,
+         2053.5910449 , 2053.5910449 , 2053.5910449 , 2053.5910449 ],
+        [2049.06668336, 2049.37630604, 2051.4674216 , 2051.4674216 ,
+         2051.4674216 , 2051.4674216 , 2051.4674216 , 2051.4674216 ],
+        [2049.06668336, 2049.37630604, 2051.4674216 , 2051.4674216 ,
+         2051.4674216 , 2051.4674216 , 2051.4674216 , 2051.4674216 ],
+        [2057.33575572, 2059.35102027, 2059.31650607, 2059.31650607,
+         2059.31650607, 2059.31650607, 2059.31650607, 2059.31650607],
+        [2059.39929289, 2060.01248435, 2061.07319189, 2061.07319189,
+         2061.07319189, 2061.07319189, 2061.07319189, 2061.07319189]]])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-3258d091-edde-4e23-b729-a6ee897efffe' class='xr-section-summary-in' type='checkbox'  ><label for='section-3258d091-edde-4e23-b729-a6ee897efffe' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-569c6514-2c28-4c36-a31b-f0d3a6893c3a' class='xr-index-data-in' type='checkbox'/><label for='index-569c6514-2c28-4c36-a31b-f0d3a6893c3a' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2024-04-04&#x27;, &#x27;2024-04-18&#x27;, &#x27;2024-04-26&#x27;, &#x27;2024-05-13&#x27;,
+               &#x27;2024-05-28&#x27;, &#x27;2024-06-11&#x27;, &#x27;2024-06-26&#x27;, &#x27;2024-07-09&#x27;,
+               &#x27;2024-07-25&#x27;, &#x27;2024-08-04&#x27;, &#x27;2024-08-04&#x27;, &#x27;2024-09-19&#x27;,
+               &#x27;2024-09-30&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>depth</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-4b6c36d2-802b-4368-8c50-3a357b05ba6f' class='xr-index-data-in' type='checkbox'/><label for='index-4b6c36d2-802b-4368-8c50-3a357b05ba6f' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-0.0, -5.0, -10.0, -15.0, -20.0, -25.0, -30.0, -35.0], dtype=&#x27;float32&#x27;, name=&#x27;depth&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>location</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-1cbe984f-e064-4d2d-be54-e3ab21706d1e' class='xr-index-data-in' type='checkbox'/><label for='index-1cbe984f-e064-4d2d-be54-e3ab21706d1e' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([1, 3, 5, 7, 9, 10, 12], dtype=&#x27;int64&#x27;, name=&#x27;location&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-8d7bd56e-3665-446d-929d-8e846d3dad7a' class='xr-section-summary-in' type='checkbox'  ><label for='section-8d7bd56e-3665-446d-929d-8e846d3dad7a' class='xr-section-summary' >Attributes: <span>(44)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>global_x :</span></dt><dd>512</dd><dt><span>global_y :</span></dt><dd>512</dd><dt><span>title :</span></dt><dd>Iceland2_MARBL_2024 , 200 m  resolution</dd><dt><span>grid_file :</span></dt><dd>/anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_grid.000.nc</dd><dt><span>forcing_files :</span></dt><dd> /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240120000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240121000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240122000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240123000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240124000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240125000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240126000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240127000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240128000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240129000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240130000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240131000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240201000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240202000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240203000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240204000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240205000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240206000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240207000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240208000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240209000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240210000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240211000020.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240211120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240212120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240213120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240214120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240215120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240216120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240217120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240218120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240219120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240220120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240221120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240222120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240223120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240224120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240225120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240226120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240227120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240228120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240229120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240301120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240302120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240303120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240304120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240305120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240306120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240307120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240308120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240309120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240310120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240311120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240312120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240313120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240314120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240315120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240316120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240317120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240318120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240319120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240320120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240321120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240322120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240323120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240324120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240325120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240326120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240327120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240328120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240329120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240330120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bry.20240331120100.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_tides.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202401.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202402.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202403.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202404.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202405.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202406.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202407.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202408.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202409.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202410.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202411.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_surface_forcing2024_202412.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_bgc_surface_forcing_clim.000.nc /anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_rivers_modified_new40off.000.nc</dd><dt><span>forcing_info :</span></dt><dd></dd><dt><span>init_file :</span></dt><dd>/anvil/scratch/x-uheede/Iceland2_MARBL_2024_60m/P_INPUT/Iceland2_initial_conditions_020240201.000.nc</dd><dt><span>ntimes :</span></dt><dd>30000</dd><dt><span>ndtfast :</span></dt><dd>80</dd><dt><span>dt :</span></dt><dd>10.0</dd><dt><span>dtfast :</span></dt><dd>0.125</dd><dt><span>theta_s :</span></dt><dd>5.0</dd><dt><span>theta_b :</span></dt><dd>2.0</dd><dt><span>hc :</span></dt><dd>300.0</dd><dt><span>Cs_w :</span></dt><dd>[-1.00000000e+00 -9.72460028e-01 -9.42861399e-01 -9.11442824e-01
+ -8.78471353e-01 -8.44232203e-01 -8.09019067e-01 -7.73125331e-01
+ -7.36836475e-01 -7.00423829e-01 -6.64139707e-01 -6.28213907e-01
+ -5.92851439e-01 -5.58231359e-01 -5.24506541e-01 -4.91804203e-01
+ -4.60227023e-01 -4.29854698e-01 -4.00745794e-01 -3.72939776e-01
+ -3.46459126e-01 -3.21311453e-01 -2.97491558e-01 -2.74983385e-01
+ -2.53761851e-01 -2.33794520e-01 -2.15043116e-01 -1.97464874e-01
+ -1.81013729e-01 -1.65641353e-01 -1.51298043e-01 -1.37933481e-01
+ -1.25497367e-01 -1.13939947e-01 -1.03212441e-01 -9.32673890e-02
+ -8.40589181e-02 -7.55429507e-02 -6.76773549e-02 -6.04220511e-02
+ -5.37390790e-02 -4.75926330e-02 -4.19490733e-02 -3.67769145e-02
+ -3.20467995e-02 -2.77314609e-02 -2.38056732e-02 -2.02461991e-02
+ -1.70317316e-02 -1.41428350e-02 -1.15618848e-02 -9.27300977e-03
+ -7.26203552e-03 -5.51643177e-03 -4.02526351e-03 -2.77914671e-03
+ -1.77020920e-03 -9.92056980e-04 -4.39746265e-04 -1.09761586e-04
+  0.00000000e+00]</dd><dt><span>Cs_r :</span></dt><dd>[-9.86500879e-01 -9.57903911e-01 -9.27363458e-01 -8.95133683e-01
+ -8.61491972e-01 -8.26728944e-01 -7.91139166e-01 -7.55012940e-01
+ -7.18629363e-01 -6.82250780e-01 -6.46118605e-01 -6.10450450e-01
+ -5.75438435e-01 -5.41248500e-01 -5.08020586e-01 -4.75869469e-01
+ -4.44886122e-01 -4.15139429e-01 -3.86678146e-01 -3.59532980e-01
+ -3.33718716e-01 -3.09236305e-01 -2.86074882e-01 -2.64213661e-01
+ -2.43623682e-01 -2.24269409e-01 -2.06110164e-01 -1.89101393e-01
+ -1.73195779e-01 -1.58344203e-01 -1.44496569e-01 -1.31602496e-01
+ -1.19611896e-01 -1.08475455e-01 -9.81450152e-02 -8.85738798e-02
+ -7.97170518e-02 -7.15314104e-02 -6.39758393e-02 -5.70113122e-02
+ -5.06009434e-02 -4.47100105e-02 -3.93059531e-02 -3.43583542e-02
+ -2.98389070e-02 -2.57213715e-02 -2.19815232e-02 -1.85970974e-02
+ -1.55477302e-02 -1.28148990e-02 -1.03818629e-02 -8.23360613e-03
+ -6.35678262e-03 -4.73966557e-03 -3.37210070e-03 -2.24546446e-03
+ -1.35262762e-03 -6.87924411e-04 -2.47127569e-04 -2.74294663e-05]</dd><dt><span>rho0 :</span></dt><dd>1027.4</dd><dt><span>rho0_units :</span></dt><dd>kg/m^3</dd><dt><span>visc2 :</span></dt><dd>0.0</dd><dt><span>visc2_units :</span></dt><dd>m^2/s</dd><dt><span>gamma2 :</span></dt><dd>1.0</dd><dt><span>tnu2 :</span></dt><dd>[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.
+ 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]</dd><dt><span>tnu2_units :</span></dt><dd>m^2/s</dd><dt><span>ubind :</span></dt><dd>0.1</dd><dt><span>ubind_units :</span></dt><dd>m/s</dd><dt><span>v_sponge :</span></dt><dd>20.0</dd><dt><span>v_sponge_units :</span></dt><dd>m^2/s</dd><dt><span>rdrg :</span></dt><dd>0.0003</dd><dt><span>rdrg_units :</span></dt><dd>m/s</dd><dt><span>rdrg2 :</span></dt><dd>0.0</dd><dt><span>rdrg2_units :</span></dt><dd>nondimensional</dd><dt><span>Zob :</span></dt><dd>0.02</dd><dt><span>Zob_units :</span></dt><dd>m</dd><dt><span>SRCS :</span></dt><dd></dd><dt><span>CPPS :</span></dt><dd>&lt;cppdefs.opt&gt; TWAKE DIAGNOSTICS TIDES BULK_FRC SPONGE_TUNE AVERAGES SOLVE3D UV_COR UV_ADV CURVGRID SPHERICAL MASKING SALINITY NONLIN_EOS SPLIT_EOS EXACT_RESTART IMPLICIT_BOTTOM_DRAG UV_VIS2 TS_DIF2 LMD_MIXING LMD_KPP LMD_BKPP LMD_RIMIX LMD_CONVEC LMD_NONLOCAL SEA_ICE_NOFLUX OBC_WEST OBC_SOUTH OBC_M2FLATHER OBC_M3ORLANSKI OBC_TORLANSKI Z_FRC_BRY M2_FRC_BRY M3_FRC_BRY T_FRC_BRY SPONGE MARBL MARBL_DIAGS BIOLOGY NHY_FORCING NOX_FORCING PCO2AIR_FORCING &lt;pre_step3d4S.F&gt; SPLINE_UV SPLINE_TS &lt;step3d_uv1.F&gt; UPSTREAM_UV SPLINE_UV &lt;step3d_uv2.F&gt; DELTA=0.28000000000000003 EPSIL=0.35999999999999999 &lt;step3d_t_ISO.F&gt; UPSTREAM_TS SPLINE_TS &lt;set_depth.F&gt; NOW=3.63 MID=4.47 BAK=2.05 (N-M+B-1)/B=0.102439024 &lt;lmd_kpp.F&gt; INT_AT_RHO_POINTS SMOOTH_HBL &lt;set_global_definitions.h&gt; CORR_COUPLED_MODE EXTRAP_BAR_FLUXES IMPLCT_NO_SLIP_BTTM_BC VAR_RHO_2D</dd><dt><span>bc_options :</span></dt><dd>OBC_WEST, OBC_SOUTH, OBC_M3ORLANSKI, OBC_TORLANSKI, UB_TUNING,</dd><dt><span>bulk_frc_options :</span></dt><dd> Interpolation ON</dd><dt><span>flux_frc_options :</span></dt><dd>OFF</dd><dt><span>tide_options :</span></dt><dd>OFF</dd><dt><span>river_frc_options :</span></dt><dd>OFF</dd><dt><span>pipe_frc_options :</span></dt><dd>OFF</dd><dt><span>particle_options :</span></dt><dd>OFF</dd><dt><span>git_version :</span></dt><dd></dd><dt><span>regrid_method :</span></dt><dd>bilinear</dd></dl></div></li></ul></div></div>

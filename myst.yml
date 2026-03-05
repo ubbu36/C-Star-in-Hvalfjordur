@@ -14,13 +14,15 @@ project:
     - file: SETUP_Iceland0_MARBL_2024.ipynb
     - file: SETUP_Iceland1_MARBL_2024-Copy1.ipynb
     - file: SETUP_Iceland2_MARBL_2024.ipynb
-    - file: SETUP_Iceland3_MARBL_2024.ipynb
+    - file: Iceland3_SETUP_2.ipynb
     - file: Passive_tracer_setup.ipynb 
-    - file: CTD_comparison_200_WiCO.ipynb
-    - file: BGC_analysis_200m.ipynb
+    - file: CTD_comparison_200_WiCO-Copy2.ipynb
+    - file: OAE_analysis2.ipynb
+    - file: BGC_analysis_200m-Copy1.ipynb
     - file: Model_solution.ipynb
     - file: pipe_movie_withmap.ipynb
     - file: SF6_observations.ipynb
+    - file: SF6_model-Copy1.ipynb
     - file: Site_description.ipynb
     - file: Tidal_gauge_ssh_comparison.ipynb
     - file: grid_overview.ipynb
