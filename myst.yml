@@ -27,6 +27,8 @@ project:
     - file: ssh_comparison.ipynb
     - file: grid_overview.ipynb
     - file: velocity_analysis.ipynb
+    - file: pCO2_bias_calculation.ipynb
+    - file: wind_conditions.ipynb
 site:
   template: book-theme
   options:
